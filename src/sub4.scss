@@ -1,0 +1,26 @@
+@mixin grid($dev){
+    @if($dev=='pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else if($dev=='tab'){
+        width: 90%;
+        max-width: 700px;
+    }
+    @else if($dev=='mob'){
+        width: 90%;
+    }
+    margin: 0 auto;
+}
+
+@mixin img($p,$s){
+    background-position: $p;
+    background-size: $s;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+.page.sub4{
+    div.mnWrap{
+        background-image: url('./images/sub4_mn.jpg');
+    }
+}

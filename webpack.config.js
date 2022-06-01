@@ -18,10 +18,17 @@ module.exports={
             },{
                 test:/\.jpg$\.png$/,
                 use:["file-loader"]
+            },{
+                test:/\.html$/,
+                use:['html-loader']
             }
         ]
     },
     plugins:[new htmlWebpackPlugin({
+        title:'index title',
+        hash:'true',
+        filename:'index.html',
+        excludeChunks:['header'],
         template: './index.html',
     }),
      new MiniCssExtractPlugin({

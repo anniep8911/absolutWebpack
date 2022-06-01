@@ -1,0 +1,83 @@
+@mixin grid($dev){
+    @if($dev=='pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else if($dev=='tab'){
+        width: 90%;
+        max-width: 700px;
+    }
+    @else if($dev=='mob'){
+        width: 90%;
+    }
+    margin: 0 auto;
+}
+
+$mainColor :  rgba(153,102,102,0.7);
+
+@mixin img($p,$s){
+    background-position: $p;
+    background-size: $s;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+.page.sub2{
+    div.mnWrap{
+        background-image: url('./images/sub2_mn.jpg');
+    }
+    div.bar{
+        background-color: $mainColor;
+    }
+    div.cnt01{
+        section{
+            margin-top: #{'min(1rem,40px)'};
+            row-gap: #{'min(1rem,40px)'};
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            article{
+                height:  #{'min(12rem,480px)'};
+                width: calc(100% / 3 - 20px);
+                position: relative;
+                .image{
+                    width: 100%;
+                    height: #{'min(8.5rem,340px)'};
+                    border-radius: 50%;
+                    @include img(0 0,cover);
+                    transition-property: opacity;
+                    transition-duration: 1.5s;
+                    @for $i from 1 through 9{
+                        &.i#{$i}{
+                           background-image: url('./images/sub2_cnt01_i#{$i}.jpg'); 
+                        }
+                    }
+                }
+                a{
+                    color:transparent;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;left: 0;
+                    cursor: pointer;
+                }
+                .bg{
+                    @include img(center, cover);
+                    position: absolute;
+                    top: 0;left: 0;
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition-property: opacity, filter;
+                    transition-duration: 1.8s;
+                    filter: blur(20px);
+                    @for $i from 1 through 9{
+                        &.i#{$i}{
+                           background-image: url('./images/sub2_cnt01_i#{$i}_bg.jpg'); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
