@@ -233,6 +233,7 @@
                     height:#{'min(17rem,680px)'};
                     overflow: hidden;
                     row-gap: #{'min(0.5rem,20px)'};
+                    transition: height 0.5s;
                     article{
                         width: calc(50% - 20px);
                         .image{
@@ -339,6 +340,7 @@
                             max-width: 1700px;
                             display: flex;
                             justify-content: space-between;
+                            margin-left: -25%;
                             article{
                                 width: calc(100% / 7 - min(1.8%, 20px));
                                 min-width: none;
