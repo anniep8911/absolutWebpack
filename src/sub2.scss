@@ -39,6 +39,7 @@ $mainColor :  rgba(153,102,102,0.7);
                 height:  #{'min(12rem,480px)'};
                 width: calc(100% / 3 - 20px);
                 position: relative;
+                cursor: pointer;
                 .image{
                     width: 100%;
                     height: #{'min(8.5rem,340px)'};
@@ -52,14 +53,6 @@ $mainColor :  rgba(153,102,102,0.7);
                         }
                     }
                 }
-                a{
-                    color:transparent;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;left: 0;
-                    cursor: pointer;
-                }
                 .bg{
                     @include img(center, cover);
                     position: absolute;
@@ -68,7 +61,7 @@ $mainColor :  rgba(153,102,102,0.7);
                     width: 100%;
                     height: 100%;
                     transition-property: opacity, filter;
-                    transition-duration: 1.8s;
+                    transition-duration: 1s;
                     filter: blur(20px);
                     @for $i from 1 through 9{
                         &.i#{$i}{
@@ -76,8 +69,143 @@ $mainColor :  rgba(153,102,102,0.7);
                         }
                     }
                 }
+                .texts{
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .btn{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    opacity: 0;
+                    transition: opacity 0.2s;
+                    transition-delay: 0.2s;
+                    button{
+                        height: 90px; width: 90px; border-radius: 50%;
+                        font-size: 40px; line-height: 90px; 
+                        margin: 0 10px;
+                        background-color: rgba(255,204,153,0.8);
+                        cursor: pointer;
+                        border: 0;
+                    }
+                }
+                &:hover{
+                    .bg{
+                        opacity: 1;
+                        filter: blur(0);
+                    }
+                    .btn{
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
-    
+    div.cnt02{
+        width: 100%;
+        max-width: none;
+        overflow: hidden;
+        section{
+            margin-top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            height: 100%;
+            article{
+                width: calc(100% / 4);
+                height: #{'min(13rem,520px)'};
+                background-color: #ccc;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                .image{
+                    width: 100%;
+                    height: 100%;
+                    filter: blur(0);
+                    transition: filter 0.8s;
+                    @for $i from 1 through 4{
+                        &.i#{$i}{
+                            background-image: url('./images/sub2_cnt2_#{$i}.jpg');
+                        }
+                    }
+                }
+                .texts{
+                    width: 80%;
+                    position: absolute;
+                    left: 10%;
+                    bottom:0;
+                    color: #fff;
+                    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                    transition: all 0.5s;
+                    p{
+                        height: #{'min(2rem,80px)'};
+                        overflow: hidden;
+                        font-size: #{'min(1.2em,12px)'};
+                        line-height: #{'min(2em,20px)'};
+                    }
+                }
+                &:hover {
+                    .image{
+                        filter: blur(10px);
+                    }
+                    .texts{
+                        text-shadow: 1px 1px 1px #fc0;
+                        color: #000;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+    div.bnr01{
+        background-image: url('./images/sub2_banner01.jpg');
+        background-size: cover;
+        background-position: center;
+        h3{
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+        }
+        h4{
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+        }
+    }
+
+    div.lightBox{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: rgba(255,255,255,0.7);
+        opacity: 0;
+        z-index: -5;
+        .cnt01{
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;right: 0;bottom: 0;
+            width: 850px;
+            height: 500px;
+            overflow: hidden;
+            video{
+                height: 500px;
+            }
+            button{
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 0;right: 0;
+            }
+        }
+    }
+    &+div{
+        margin-top: 0;
+    }    
 }
