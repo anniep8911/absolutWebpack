@@ -1,3 +1,4 @@
+import fnc from './fnc';
 function main(){
     const pg =document.querySelectorAll('.pagenation li');
     const mnImg  = document.querySelectorAll('.mnImg');
@@ -7,68 +8,53 @@ function main(){
     const cnt3Btn =  document.querySelector('.cnt03 button');
     const cnt2more = document.querySelector('.cnt02>.btn>button');
 
-    let [crnPg,flag,hg,cnt] = [0,false,0,1];
-
-    function pgNation(ind){
-        for(let i=0; i< pg.length;i++){
-            mnImg[i].classList.remove('on');
-            pg[i].classList.remove('clicked');
-        }
-        mnImg[ind].className= mnImg[ind].className+' on';
-        pg[ind].className ='clicked';
-    }
-    
-    function back(dir,gr,bgSet){            
-        setTimeout(function(){
-            gr.animate({
-                marginLeft:bgSet
-            },{
-                duration:0,
-                fill:'forwards'
-            });
-            if(dir == 'left'){
-                gr.append(gr.firstElementChild);
-            }else{
-                gr.prepend(gr.lastElementChild);
-            }
-
-        },500);
-    }
-    
-    function slide(dir,deg,gr,bgSet){
-        gr.animate({
-            marginLeft:deg
-        },{
-            duration:500,
-            fill:'forwards'
-        });
-        back(dir,gr,bgSet);
-    }
+    let [crnPg,flag,hg,cnt,onoff] = [0,false,0,1,false];
 
     function more(cnt,gr,endInd,btn){
         if(!flag) hg = gr.clientHeight;
-        if(cnt<=endInd)gr.style.height = `${hg*cnt}px`;
-        else btn.innerText='close';
+        if(cnt<=endInd){
+            gr.style.height = `${hg*cnt}px`;
+            if(cnt == endInd){
+                btn.innerText='닫기';
+            }
+        }
+    }
+
+    function sw(inded,btn){
+        if(!onoff){
+            cnt++;
+            if(cnt==inded){
+                onoff=true;
+            }
+        }else{
+            cnt--;
+            if(cnt==1){
+                onoff=false;
+                btn.innerText='더보기';
+            }
+        }
     }
 
     const autoRolling = setInterval(function(){
         crnPg++;
-        crnPg=crnPg%3; 
-        pgNation(crnPg);
+        crnPg=crnPg%3;
+        fnc.pgNation(pg,mnImg,crnPg); 
     },1500);
 
-    console.log(document.querySelector('.cnt02 section'));
-    slideRight.onclick=()=>{slide('right','0%',slideGr,'-33.33%')};
-    slideLeft.onclick=()=>{slide('left','-66.66%',slideGr,'-33.33%')};
-    cnt3Btn.onclick=()=>{slide('left','-50%',document.querySelector('.cnt03 .artGroup'),'-25%')};
-    cnt2more.onclick=(e)=>{cnt++;more(cnt,document.querySelector('.cnt02 section'),2,e.currentTarget); flag=true;};
+    slideRight.onclick=()=>{fnc.slide('right','0%',slideGr,'-33.33%')};
+    slideLeft.onclick=()=>{fnc.slide('left','-66.66%',slideGr,'-33.33%')};
+    cnt3Btn.onclick=()=>{fnc.slide('left','-50%',document.querySelector('.cnt03 .artGroup'),'-25%')};
+    cnt2more.onclick=(e)=>{
+        sw(2,e.currentTarget);
+        more(cnt,document.querySelector('.cnt02 section'),2,e.currentTarget); 
+        flag=true;
+    };
     
     pg.forEach((e,ind)=>{
         e.onclick=()=>{
-            pgNation(ind);
+            fnc.pgNation(pg,mnImg,ind);
             clearInterval(autoRolling);
         }
     });
-
 }
 export default main;
