@@ -1,4 +1,6 @@
 export default{
+    cnt:1,
+    now:'on',
     goHome:function(){
         pageStart.innerHTML = main;
         pageStart.className = 'page index';
@@ -37,5 +39,32 @@ export default{
         });
         this.back(dir,gr,bgSet);
     },
+    scBase:function scBase(allnodes){
+        allnodes.forEach(o=>{
+            o.style.color='#ccc';
+        });
+    },
+    score:function score(allnodes,ind,col){
+        this.scBase(allnodes,ind);
+        for(var i =0; i<=ind; i++){
+            allnodes[i].style.color=col;
+        }
+    },
+    sw:function sw(inded,btn){
+        if(this.now=='on')this.cnt++;
+        else this.cnt--;
+        if(this.cnt >= inded){
+            btn.innerText='닫기';
+            this.now='off';
+        }else if(this.cnt <= 1){
+            btn.innerText='더보기';
+            this.now='on';
+        }
+        // console.log(this.cnt);
+        return this.cnt;
+    },
+    more: function more(hg,cnt,gr){
+        gr.style.height = `${hg*cnt}px`;
+    }
 }
 

@@ -274,10 +274,12 @@
                                 }
                             }
                             p{
-                                font-size: #{'min(1.8em,18px)'};
                                 background-image: linear-gradient(#{'min(1em,40px)'});
-                                margin-top: #{'min(2.5em,25px)'};
+                                margin-top: #{'min(1em,10px)'};
                                 cursor: default;
+                                font-size: #{'min(4em,40px)'};
+                                color: #ccc;
+                                cursor: pointer;
                             }
                         }
                     }

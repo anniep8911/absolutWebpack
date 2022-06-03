@@ -55,14 +55,22 @@ $mainColor :  rgba(204,102,102,0.7);
         section{
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-top: #{'min(1rem,40px)'};
             grid-row-gap: #{'min(1rem,40px)'};
             article{
-                width: calc(100% / 3 - 20px);
-                height: #{'min(10rem,400px)'};
                 position: relative;
-                transition: all 0.5s;
+                transition: opacity 0.5s,width 0.5s 0.5s, height 0s 0.5s;
+                opacity: 0;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                &.show{
+                    opacity: 1;
+                    height: #{'min(10rem,400px)'};
+                    width: calc(100% / 3 - 20px);
+                    margin-left: 20px;
+                }
                 .image{
                     @include img(center, contain);
                     height:#{'min(7rem,280px)'};
@@ -83,6 +91,7 @@ $mainColor :  rgba(204,102,102,0.7);
                     h6{
                         font-size: #{'min(2.5em,25px)'};
                         cursor: pointer;
+                        color: #ccc;
                     }
                 }
                 .btn{
@@ -95,7 +104,7 @@ $mainColor :  rgba(204,102,102,0.7);
                     transition: opacity 0.5s;
                     button{
                         height: #{'min(2.5rem,90px)'}; 
-                        width: 90px; 
+                        width: #{'min(2.5rem,90px)'}; 
                         border-radius: 50%;
                         font-size: #{'min(1rem,40px)'}; 
                         line-height: #{'min(2.5rem,90px)'};

@@ -146,6 +146,9 @@ $mainColor:rgba(0,51,153,0.7);
                 font-style: italic;
             }
         }
+        section{
+            transition: height 0.5s;
+        }
         &.cnt01{
             header{
                 h2{
