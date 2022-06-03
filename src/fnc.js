@@ -50,18 +50,15 @@ export default{
             allnodes[i].style.color=col;
         }
     },
-    sw:function sw(inded,btn){
-        if(this.now=='on')this.cnt++;
-        else this.cnt--;
-        if(this.cnt >= inded){
+    sw:function sw(cnt,inded,btn){
+        if(cnt >= inded){
             btn.innerText='닫기';
             this.now='off';
-        }else if(this.cnt <= 1){
+        }else if(cnt <= 1){
             btn.innerText='더보기';
             this.now='on';
         }
-        // console.log(this.cnt);
-        return this.cnt;
+        return this.now;
     },
     more: function more(hg,cnt,gr){
         gr.style.height = `${hg*cnt}px`;

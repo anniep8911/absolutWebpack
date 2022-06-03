@@ -10,7 +10,7 @@ function main(){
     const stars =  document.querySelectorAll('.cnt02 .texts p');
     const cnt02Sect = document.querySelector('.cnt02 section');
 
-    let [crnPg,flag,hg,cnt] = [0,false,0,1];
+    let [crnPg,flag,hg,cnt,now,endIdx] = [0,false,0,1,'on',2];
 
     const autoRolling = setInterval(function(){
         crnPg++;
@@ -18,15 +18,15 @@ function main(){
         fnc.pgNation(pg,mnImg,crnPg); 
     },1500);
     
-    let onoff=false;
-    slideRight.onclick=()=>{fnc.slide('right','0%',slideGr,'-33.33%')};
+    slideRight.onclick=()=>{fnc.slide('right','0%',slideGr,'-33.33%');};
     slideLeft.onclick=()=>{fnc.slide('left','-66.66%',slideGr,'-33.33%')};
     cnt3Btn.onclick=()=>{fnc.slide('left','-50%',document.querySelector('.cnt03 .artGroup'),'-25%')};
     cnt2more.onclick=(e)=>{
         if(!flag)hg = cnt02Sect.clientHeight; flag=true;
-        cnt = fnc.sw(2,e.currentTarget);
-        fnc.more(hg,cnt,cnt02Sect)
-      
+        if(now=='on')cnt++;
+        else cnt--;
+        now = fnc.sw(cnt,endIdx,e.currentTarget);
+        fnc.more(hg,cnt,cnt02Sect);
     };
     
     pg.forEach((e,ind)=>{
