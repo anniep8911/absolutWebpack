@@ -10,7 +10,7 @@ function main(){
     const stars =  document.querySelectorAll('.cnt02 .texts p');
     const cnt02Sect = document.querySelector('.cnt02 section');
 
-    let [crnPg,flag,hg,cnt,now,endIdx] = [0,false,0,1,'on',2];
+    let [crnPg,flag,hg,cnt,now,endIdx,stX,stY,enX,enY] = [0,false,0,1,'on',2,0,0,0,0];
 
     const autoRolling = setInterval(function(){
         crnPg++;
@@ -43,5 +43,10 @@ function main(){
             }
         })
     });
+
+    if(fnc.wd<=1024){
+        fnc.touch(slideGr,'-66.66%','-33.33%');
+        fnc.touch(document.querySelector('.cnt03 .artGroup'),'-50%','-25%');
+    }
 }
 export default main;

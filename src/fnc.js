@@ -1,6 +1,11 @@
 export default{
     cnt:1,
     now:'on',
+    wd:window.innerWidth,
+    stX:0,
+    stY:0,
+    enX:0,
+    enY:0,
     goHome:function(){
         pageStart.innerHTML = main;
         pageStart.className = 'page index';
@@ -62,6 +67,21 @@ export default{
     },
     more: function more(hg,cnt,gr){
         gr.style.height = `${hg*cnt}px`;
+    },
+    touch:function touch(dom,perLeft,base){
+        dom.addEventListener('touchstart',(e)=>{
+            this.stX = e.changedTouches[0].screenX;
+            this.stY = e.changedTouches[0].screenY;
+        });
+        dom.addEventListener('touchend',(e) =>{
+            this.enX = e.changedTouches[0].screenX;
+            this.enY = e.changedTouches[0].screenY;
+            if(this.stX>this.enX && Math.abs(this.stY-this.enY)<50){
+                this.slide('left',perLeft,dom,base)
+            }else if(this.stX<this.enX && Math.abs(this.stY-this.enY)<50){
+                this.slide('right','0%',dom,base);
+            }
+        });
     }
 }
 

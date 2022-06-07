@@ -18,6 +18,16 @@
     background-repeat: no-repeat;
     color: transparent;
 }
+@mixin mob {
+    @media (min-width:0px) and (max-width:420px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 
     div.mnWrap{
         width: 100%;
@@ -61,16 +71,26 @@
                     h4{
                         font-size:  #{'min(2.4em,24px)'};
                         line-height: #{'min(1rem,40px)'};
+                        @include tab{
+                            font-size: #{'max(2.4em,20px)'};
+                            line-height: #{'max(1rem,20px)'};
+                        }
                     }
                     .pagenation{
                         li{
-                            width: 65%; height: #{'min(1.6em,16px)'};
+                            width: 65%; 
+                            height: #{'min(1.6em,16px)'};
                             background-color: #aaa; border-radius: 10px;
                             margin-top: 6px; cursor: pointer;
                             margin: 8px auto 0;
                             &.clicked{
                                 background-color: #fff;
                             }
+                            @include tab{
+                                height: #{'max(1.6em,10px)'};
+                                width: 45%;
+                            }
+
                         }
                     }
     
@@ -78,14 +98,26 @@
                 .txtGroup{
                     width: calc(100% / 12 * 4);
                     margin-left: 20px;
+                    @include tab{
+                        width: 50%;
+                    }
                     h4{
                         font-size: #{'min(2.4em,24px)'};
-                        line-height: #{'min(1rem,40px)'};;
+                        line-height: #{'min(1rem,40px)'};
+                        @include tab{
+                            font-size: #{'max(2.4em,20px)'};
+                            line-height: #{'max(1rem,20px)'};
+                        }
                     }
                     p{
                         height:  #{'min(2rem,80px)'};
                         overflow: hidden;
                         line-height:  #{'min(0.5rem,20px)'};
+                        @include tab{
+                            height:  #{'max(2rem,60px)'};
+                            font-size:  #{'max(1.2em,11px)'};
+                            line-height:  #{'max(0.5rem,20px)'};
+                        }
                     }
                 }
             }
@@ -104,12 +136,19 @@
     
     div.cntWrap{
         margin-top: #{'min(3rem,120px)'};
+        @include tab{
+            margin-top: #{'max(1rem,40px)'}; 
+        }
         .content{
             @include grid('pc');
             header{
                 h3{
                     font-size: #{'min(3em,30px)'};
                     line-height: #{'min(1rem,40px)'};
+                    @include tab{
+                        font-size: #{'max(3em,16px)'};
+                        line-height: #{'max(1rem,20px)'};
+                    }
                 }
                 h4{
                     font-size: #{'min(2.2em,22px)'};
@@ -127,6 +166,9 @@
                 }
                 overflow: hidden;
                 margin-top: #{'min(2rem,80px)'};
+                @include tab{
+                    margin-top: #{'min(1rem,20px)'};
+                }
                 article{
                     &>h3{
                         display: none;
@@ -145,9 +187,17 @@
                         margin-left: -33.33%;
                         display: flex;
                         justify-content: space-between;
+                        @include mob{
+                            width: 300%;
+                        }
                         article{
                             width: #{'min(calc(100% / 3 - 20px),340px)'};
                             height: #{'min(12rem,480px)'};
+                            @include mob{
+                                width: #{'max(calc(100% / 2 - 20px),340px)'};
+                                height: #{'max(12rem,200px)'};
+                            }
+
                             position: relative;
                             z-index: 5;
                             .imgBottle{
@@ -165,7 +215,10 @@
                             }
                             .image{
                                 width: 88.23%;
-                                height: #{'min(11rem,440px)'};;
+                                height: #{'min(11rem,440px)'};
+                                @include mob{
+                                    height: #{'max(12rem,200px)'};
+                                }
                                 position:absolute;
                                 top: 0;
                                 right: 0;
@@ -179,6 +232,10 @@
                                         background-image: url('./images/bg#{$i}.jpg');
                                     }
                                 }
+
+                                @include tab{
+                                    filter: blur(0);
+                                }
                             }
                             &:hover .image{
                                 filter: blur(0);
@@ -189,13 +246,17 @@
                                 right: 20px;
                                 z-index: 3;
                                 color: #fff;
+                                text-shadow: 1px 1px 2px #000;
+                                @include tab{
+                                    top: 0;
+                                    text-shadow: 1px 1px 2px magenta;
+                                }
                                 h2{
                                     font-size: #{'min(5em,50px)'};
                                     line-height: #{'min(5em,50px)'};
                                     text-align: right;
                                     font-style: italic;
                                     font-family: 'Permanent Marker';
-                                    text-shadow: 1px 1px 2px #000;
                                 }
                             }
                         }
@@ -221,6 +282,9 @@
                         font-size: #{'min(4em,40px)'};
                         color: #fff;
                         cursor: pointer;
+                        @include tab{
+                            display: none;
+                        }
                     }
                 }
             }
@@ -234,8 +298,11 @@
                     overflow: hidden;
                     row-gap: #{'min(0.5rem,20px)'};
                     transition: height 0.5s;
+                    @include tab{
+                        height: #{'max(17rem,300px)'};
+                    }
                     article{
-                        width: calc(50% - 20px);
+                        width: calc(50% - #{'min(1%,20px)'});
                         .image{
                             height: #{'min(11rem,440px)'};
                             @include img(center, cover);
@@ -244,11 +311,17 @@
                                     background-image: url('./images/bg_cnt02_#{$i}.jpg');
                                 }
                             }
+                            @include tab{
+                                height: #{'max(11rem,200px)'};
+                            }
                         }
                         .texts{
                             height: #{'min(6rem,240px)'};
                             padding: #{'min(1rem,40px)'} #{'min(0.5rem,20px)'};
                             @include img(center, cover);
+                            @include tab{
+                                height: #{'max(6rem,100px)'};
+                            }
                             color: #000;
                             @for $i from 1 through 4{
                                 &.i#{$i}{
@@ -271,6 +344,9 @@
                                     background-color: #999;
                                     color: #fff;
                                     cursor: pointer;
+                                }
+                                @include tab{
+                                    display: none;
                                 }
                             }
                             p{
@@ -369,6 +445,9 @@
         margin-top: #{'min(3rem,120px)'};
         padding: #{'min(3rem,120px)'} 0;
         @include img(center,cover);
+        @include tab{
+            margin-top: #{'max(1rem,40px)'};
+        }
         .banner{
             @include grid('pc');
             text-align: center;
@@ -376,16 +455,30 @@
             h3{
                 font-size: #{'min(3em,30px)'};
                 line-height: #{'min(1rem,40px)'};
+                @include tab{
+                    font-size: #{'max(3em,16px)'};
+                    line-height: #{'max(1rem,20px)'};
+                }
             }
             h4{
                 font-size: #{'min(1.8em,18px)'};
                 line-height: #{'min(1rem,40px)'};
+                @include tab{
+                    font-size: #{'min(1.8em,14px)'};
+                    line-height: #{'max(1rem,20px)'};
+                }
             }
             p{
                 width: 75%;
                 margin: #{'min(0.5rem,20px)'} auto 0;
                 font-size: #{'min(1.4em,14px)'};
                 line-height: #{'min(0.5rem,20px)'};
+                @include tab{
+                    font-size: #{'max(1.4em,12px)'};
+                    line-height: #{'max(0.5rem,20px)'};
+                    height: #{'max(1rem,40px)'};
+                    overflow: hidden;
+                }
             }
             .btn{
                 width: calc(100% / 12);
@@ -404,6 +497,9 @@
                 display: flex;
                 width: 50%;
                 justify-content: space-between;
+                @include tab{
+                    width: 90%;
+                }
                 input{
                     border:0;
                     line-height: #{'min(1rem,40px)'};

@@ -27,6 +27,16 @@
     background-repeat: no-repeat;
     color: transparent;
 }
+@mixin mob {
+    @media (min-width:0px) and (max-width:420px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 
 html{
     font-size: 3vw;
@@ -39,10 +49,11 @@ html{
             width: 100%;
             height:  #{'min(2rem,80px)'};
             position: relative;
-            z-index: 90;
             header{
                 @include grid('pc');
                 display: flex;
+                position: relative;
+                z-index: 90;
                 justify-content: space-between;
                 align-items: center;
                 color: #fff;
@@ -52,17 +63,68 @@ html{
                     line-height: #{'min(2rem,80px)'};
                     font-family: "Noto Serif KR";
                     cursor: pointer;
+                    @include tab{
+                        font-size: #{'max(3.6em,14px)'};
+                        line-height: #{'max(2rem,40px)'};
+                    }
                 }
                 ul{
                     width: 50%;
                     display: flex;
                     justify-content: space-around;
+                    @include tab{
+                        justify-content: end;
+                        font-size: #{'max(3.6em,14px)'};
+                        line-height: #{'max(2rem,40px)'};
+                    }
                     li{
                         cursor: pointer;
                         line-height: #{'min(2rem,80px)'};
                         font-size: #{'min(2.2em,22px)'};
                         font-weight: 500;
+                        @include tab{
+                            display: none;
+                        }
+                        &:last-child{
+                            display: none;
+                            @include tab{
+                                display: block;
+                            }
+                        }
                     }
+                }
+            }
+            div.navBox{
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(255,255,255,0.8);
+                position: fixed;
+                top: 0;left: 0;
+                color: #000;
+                opacity: 0;
+                z-index: -999;
+                transition: opacity 0.5s;
+                ul{
+                    width: 50%;
+                    height: 80%;
+                    position: absolute;
+                    margin: auto;
+                    top: 0;bottom: 0;left: 0;right: 0;
+                    text-align: center;
+                    li{
+                        line-height:  #{'max(2rem,30px)'};
+                        font-size: #{'max(1.8em,16px)'};
+                        position: relative;
+                        cursor: pointer;
+                        &:last-child{
+                            position: absolute;
+                            top: -5%;right: 0; left: 0;
+                        }
+                    }
+                }
+                &.show{
+                    z-index: 99;
+                    opacity: 1;
                 }
             }
         }
