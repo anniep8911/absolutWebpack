@@ -19,7 +19,7 @@
     color: transparent;
 }
 @mixin mob {
-    @media (min-width:0px) and (max-width:420px) {
+    @media (min-width:0px) and (max-width:700px) {
         @content;
     }
 }
@@ -76,6 +76,9 @@
                             line-height: #{'max(1rem,20px)'};
                         }
                     }
+                    @include mob{
+                        display: none;
+                    }
                     .pagenation{
                         li{
                             width: 65%; 
@@ -100,6 +103,9 @@
                     margin-left: 20px;
                     @include tab{
                         width: 50%;
+                    }
+                    @include mob{
+                        display: none;
                     }
                     h4{
                         font-size: #{'min(2.4em,24px)'};
@@ -138,6 +144,7 @@
         margin-top: #{'min(3rem,120px)'};
         @include tab{
             margin-top: #{'max(1rem,40px)'}; 
+            overflow: hidden;
         }
         .content{
             @include grid('pc');
@@ -158,6 +165,10 @@
                 p{
                     font-size:#{'min(1.8em,18px)'} ;
                     line-height:#{'min(0.5rem,20px)'} ;
+                    @include tab{
+                        font-size:#{'max(1.8em,12px)'} ;
+                        line-height:#{'max(0.5rem,20px)'} ;
+                    }
                 }
             }
             section{
@@ -182,20 +193,29 @@
                     text-align: center;
                 }
                 section{
+                    @include mob(){
+                        overflow: visible;
+                    }
                     .artGroup{
                         width: 200%;
                         margin-left: -33.33%;
                         display: flex;
                         justify-content: space-between;
+                        @include tab{
+                            width: 250%;
+                        }
                         @include mob{
-                            width: 300%;
+                            width: 200%;
                         }
                         article{
-                            width: #{'min(calc(100% / 3 - 20px),340px)'};
+                            width: calc(100% / 6 - 20px);
                             height: #{'min(12rem,480px)'};
-                            @include mob{
-                                width: #{'max(calc(100% / 2 - 20px),340px)'};
+                            @include tab{
+                             
                                 height: #{'max(12rem,200px)'};
+                            }
+                            @include mob{
+                                width: calc(100% / 4 - 20px);
                             }
 
                             position: relative;
@@ -207,17 +227,25 @@
                                 bottom: 0;
                                 z-index: 5;
                                 @include img(center, contain);
+                                @include mob{
+                                    width: 100%;
+                                    height: 100%;
+                                }
                                 @for $i from 1 through 6{
                                     &.i#{$i}{
                                         background-image: url('./images/bottle#{$i}.png');
                                     }
                                 }
+                                
                             }
                             .image{
                                 width: 88.23%;
                                 height: #{'min(11rem,440px)'};
-                                @include mob{
+                                @include tab{
                                     height: #{'max(12rem,200px)'};
+                                }
+                                @include mob{
+                                    display: none;
                                 }
                                 position:absolute;
                                 top: 0;
@@ -257,6 +285,9 @@
                                     text-align: right;
                                     font-style: italic;
                                     font-family: 'Permanent Marker';
+                                    @include mob{
+                                       display: none;
+                                    }
                                 }
                             }
                         }
@@ -291,71 +322,80 @@
     
             &.cnt02{
                 section{
-                    display: flex;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    height:#{'min(17rem,680px)'};
-                    overflow: hidden;
-                    row-gap: #{'min(0.5rem,20px)'};
-                    transition: height 0.5s;
                     @include tab{
-                        height: #{'max(17rem,300px)'};
+                        overflow: visible;
                     }
-                    article{
-                        width: calc(50% - #{'min(1%,20px)'});
-                        .image{
-                            height: #{'min(11rem,440px)'};
-                            @include img(center, cover);
-                            @for $i from 1 through 4{
-                                &.i#{$i}{
-                                    background-image: url('./images/bg_cnt02_#{$i}.jpg');
-                                }
-                            }
-                            @include tab{
-                                height: #{'max(11rem,200px)'};
-                            }
+                    div.artGroup{
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        height:#{'min(17rem,680px)'};
+                        overflow: hidden;
+                        row-gap: #{'min(0.5rem,20px)'};
+                        transition: height 0.5s;
+                        @include tab{
+                           width: 200%;
+                           margin-left: -50%;
                         }
-                        .texts{
-                            height: #{'min(6rem,240px)'};
-                            padding: #{'min(1rem,40px)'} #{'min(0.5rem,20px)'};
-                            @include img(center, cover);
+                        article{
+                            width: calc(50% - #{'min(1%,20px)'});
                             @include tab{
-                                height: #{'max(6rem,100px)'};
+                                width: calc(25% - #{'min(1%,20px)'});
                             }
-                            color: #000;
-                            @for $i from 1 through 4{
-                                &.i#{$i}{
-                                    background-image: url('./images/bg_txt_#{$i}.jpg');
-                                }
-                            }
-                            h4{
-                                font-size: #{'min(2.4em,24px)'};
-                            }
-                            .btn{
-                                margin-top: #{'min(2.5em,25px)'};
-                                button{
-                                    height: #{'min(3em,30px)'};
-                                    line-height: #{'min(3em,30px)'};
-                                    font-size: #{'min(1.4em,14px)'};
-                                    text-transform: uppercase;
-                                    border-radius: 20px;
-                                    padding: 0 20px;
-                                    border: 0;
-                                    background-color: #999;
-                                    color: #fff;
-                                    cursor: pointer;
+                            .image{
+                                height: #{'min(11rem,440px)'};
+                                @include img(center, cover);
+                                @for $i from 1 through 4{
+                                    &.i#{$i}{
+                                        background-image: url('./images/bg_cnt02_#{$i}.jpg');
+                                    }
                                 }
                                 @include tab{
-                                    display: none;
+                                    height: #{'max(11rem,200px)'};
                                 }
                             }
-                            p{
-                                background-image: linear-gradient(#{'min(1em,40px)'});
-                                margin-top: #{'min(1em,10px)'};
-                                cursor: default;
-                                font-size: #{'min(4em,40px)'};
-                                color: #ccc;
-                                cursor: pointer;
+                            .texts{
+                                height: #{'min(6rem,240px)'};
+                                padding: #{'min(1rem,40px)'} #{'min(0.5rem,20px)'};
+                                @include img(center, cover);
+                                @include tab{
+                                    height: #{'max(6rem,100px)'};
+                                }
+                                color: #000;
+                                @for $i from 1 through 4{
+                                    &.i#{$i}{
+                                        background-image: url('./images/bg_txt_#{$i}.jpg');
+                                    }
+                                }
+                                h4{
+                                    font-size: #{'min(2.4em,24px)'};
+                                }
+                                .btn{
+                                    margin-top: #{'min(2.5em,25px)'};
+                                    button{
+                                        height: #{'min(3em,30px)'};
+                                        line-height: #{'min(3em,30px)'};
+                                        font-size: #{'min(1.4em,14px)'};
+                                        text-transform: uppercase;
+                                        border-radius: 20px;
+                                        padding: 0 20px;
+                                        border: 0;
+                                        background-color: #999;
+                                        color: #fff;
+                                        cursor: pointer;
+                                    }
+                                    @include tab{
+                                        display: none;
+                                    }
+                                }
+                                p{
+                                    background-image: linear-gradient(#{'min(1em,40px)'});
+                                    margin-top: #{'min(1em,10px)'};
+                                    cursor: default;
+                                    font-size: #{'min(4em,40px)'};
+                                    color: #ccc;
+                                    cursor: pointer;
+                                }
                             }
                         }
                     }
@@ -364,6 +404,9 @@
                     width: calc(100% / 12);
                     min-width: 180px;
                     margin: #{'min(1rem,40px)'} auto 0;
+                    @include tab{
+                        display: none;
+                    }
                         button{
                             width: 100%;
                             border-radius: 7px;
@@ -383,14 +426,27 @@
             &.cnt03{
                 display: flex;
                 justify-content: space-between;
+                @include tab{
+                    display: block;
+                }
                 header{
                     width: calc(100% / 12 * 3);
                     text-align: left;
+                    @include tab{
+                        width: 100%;
+                        button{
+                            display: none;
+                        }
+                    }
                     p{
                         height: #{'min(1rem,40px)'};
                         line-height: #{'min(0.5rem,20px)'};
                         overflow: hidden;
                         margin-top: #{'min(1rem,40px)'};
+                        @include tab{
+                            height: #{'max(1rem,40px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
                     }
                     button{
                         margin-top: #{'min(1rem,40px)'};
@@ -408,17 +464,29 @@
                     width: calc(100% / 12 * 8);
                     overflow: unset;
                     margin-top: 0;
+                    @include tab{
+                       margin-top: #{'min(1rem,40px)'};
+                       width: 90%;
+                    }
                     .sectWrap{
                         width: calc((100vw - 1080px) / 2 + 100%);
                         min-width: calc((100vw - 80vw) / 2 + 100%);
                         height: 100%;
                         overflow: hidden;
+                        @include tab{
+                            width: 100%;
+                            overflow: visible;
+                         }
                         .artGroup{
                             width: 175%;
                             max-width: 1700px;
                             display: flex;
                             justify-content: space-between;
                             margin-left: -25%;
+                            @include tab{
+                                width: 150%;
+                                margin-left: -20%;
+                             }
                             article{
                                 width: calc(100% / 7 - min(1.8%, 20px));
                                 min-width: none;
@@ -426,6 +494,11 @@
                                     height: #{'min(5rem,200px)'};
                                     box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
                                     border-radius: 50%;
+                                    @include tab{
+                                        height: #{'max(5rem,200px)'};
+                                        box-shadow: 2px 2px 4px rgba(0,0,0,0);
+                                        border-radius: 0;
+                                    }
                                     @include img(center, contain);
                                     @for $i from 1 through 7{
                                         &.i#{$i}{

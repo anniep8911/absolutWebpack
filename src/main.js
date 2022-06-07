@@ -8,7 +8,7 @@ function main(){
     const cnt3Btn =  document.querySelector('.cnt03 button');
     const cnt2more = document.querySelector('.cnt02>.btn>button');
     const stars =  document.querySelectorAll('.cnt02 .texts p');
-    const cnt02Sect = document.querySelector('.cnt02 section');
+    const cnt02Sect = document.querySelector('.cnt02 section .artGroup');
 
     let [crnPg,flag,hg,cnt,now,endIdx,stX,stY,enX,enY] = [0,false,0,1,'on',2,0,0,0,0];
 
@@ -46,7 +46,8 @@ function main(){
 
     if(fnc.wd<=1024){
         fnc.touch(slideGr,'-66.66%','-33.33%');
-        fnc.touch(document.querySelector('.cnt03 .artGroup'),'-50%','-25%');
+        fnc.touch(document.querySelector('.cnt03 .artGroup'),'-40%','-20%');
+        fnc.touch(document.querySelector('.cnt02 .artGroup'),'-100%','-50%');
     }
 }
 export default main;
