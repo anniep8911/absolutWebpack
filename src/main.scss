@@ -146,6 +146,9 @@
             margin-top: #{'max(1rem,40px)'}; 
             overflow: hidden;
         }
+        @include mob{
+            margin-top: #{'max(1rem,20px)'}; 
+        }
         .content{
             @include grid('pc');
             header{
@@ -161,6 +164,13 @@
                     font-size: #{'min(2.2em,22px)'};
                     line-height: #{'min(1rem,40px)'};
                     font-weight: 300;
+                    @include tab{
+                        font-size: #{'max(2.2em,12px)'};
+                        line-height: #{'max(1rem,20px)'};
+                    }
+                    @include mob(){
+                        display: none;
+                    }
                 }
                 p{
                     font-size:#{'min(1.8em,18px)'} ;
@@ -168,6 +178,9 @@
                     @include tab{
                         font-size:#{'max(1.8em,12px)'} ;
                         line-height:#{'max(0.5rem,20px)'} ;
+                    }
+                    @include mob(){
+                        display: none;
                     }
                 }
             }
@@ -178,7 +191,7 @@
                 overflow: hidden;
                 margin-top: #{'min(2rem,80px)'};
                 @include tab{
-                    margin-top: #{'min(1rem,20px)'};
+                    margin-top: #{'max(1rem,20px)'};
                 }
                 article{
                     &>h3{
@@ -339,6 +352,10 @@
                         @include tab{
                            width: 200%;
                            margin-left: -50%;
+                           height: auto;
+                        }
+                        @include mob(){
+                            height: auto;
                         }
                         article{
                             width: calc(50% - #{'min(1%,20px)'});
@@ -354,16 +371,12 @@
                                     }
                                 }
                                 @include tab{
-                                    height: #{'max(11rem,200px)'};
+                                    height: 11rem; 
                                 }
                             }
                             .texts{
-                                height: #{'min(6rem,240px)'};
                                 padding: #{'min(1rem,40px)'} #{'min(0.5rem,20px)'};
                                 @include img(center, cover);
-                                @include tab{
-                                    height: #{'max(6rem,100px)'};
-                                }
                                 color: #000;
                                 @for $i from 1 through 4{
                                     &.i#{$i}{
@@ -398,6 +411,12 @@
                                     font-size: #{'min(4em,40px)'};
                                     color: #ccc;
                                     cursor: pointer;
+                                    @include tab{
+                                        font-size: #{'max(4em,30px)'};
+                                    }
+                                    @include mob(){
+                                        display: none;
+                                    }
                                 }
                             }
                         }
@@ -502,6 +521,9 @@
                                         box-shadow: 2px 2px 4px rgba(0,0,0,0);
                                         border-radius: 0;
                                     }
+                                    @include mob{
+                                        height: #{'max(5rem,120px)'};
+                                    }
                                     @include img(center, contain);
                                     @for $i from 1 through 7{
                                         &.i#{$i}{
@@ -523,6 +545,9 @@
         @include img(center,cover);
         @include tab{
             margin-top: #{'max(1rem,40px)'};
+        }
+        @include mob{
+            margin-top: #{'max(1rem,20px)'};
         }
         .banner{
             @include grid('pc');

@@ -157,11 +157,9 @@ $mainColor :  rgba(204,102,102,0.7);
             margin: auto;
             top: 0;
             left: 0;right: 0;bottom: 0;
-            width: 850px;
-            height: 500px;
             overflow: hidden;
             video{
-                height: 500px;
+               width: 100%;
             }
             button{
                 width: 50px;
