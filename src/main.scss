@@ -193,7 +193,7 @@
                     text-align: center;
                 }
                 section{
-                    @include mob(){
+                    @include tab(){
                         overflow: visible;
                     }
                     .artGroup{
@@ -202,20 +202,22 @@
                         display: flex;
                         justify-content: space-between;
                         @include tab{
-                            width: 250%;
+                            width: 300%;
+                            margin-left: -50%;
                         }
                         @include mob{
-                            width: 200%;
+                            width: 150%;
+                            margin-left: -25%;
                         }
                         article{
                             width: calc(100% / 6 - 20px);
                             height: #{'min(12rem,480px)'};
                             @include tab{
-                             
                                 height: #{'max(12rem,200px)'};
                             }
                             @include mob{
-                                width: calc(100% / 4 - 20px);
+                                width: calc(100% / 4);
+                                height: #{'max(12rem,150px)'};
                             }
 
                             position: relative;
@@ -243,6 +245,7 @@
                                 height: #{'min(11rem,440px)'};
                                 @include tab{
                                     height: #{'max(12rem,200px)'};
+                                    width: 81.23%;
                                 }
                                 @include mob{
                                     display: none;
@@ -484,7 +487,7 @@
                             justify-content: space-between;
                             margin-left: -25%;
                             @include tab{
-                                width: 150%;
+                                width: 140%;
                                 margin-left: -20%;
                              }
                             article{
@@ -563,6 +566,10 @@
                 background-color: rgba(255,255,255,0.9);
                 font-size: #{'min(2em,20px)'};
                 cursor: pointer;
+                @include mob{
+                    line-height: #{'max(1rem,20px)'};
+                    font-size: #{'max(2em,13px)'};
+                }
             }
             form{
                 margin: 0 auto;
@@ -572,6 +579,9 @@
                 justify-content: space-between;
                 @include tab{
                     width: 90%;
+                }
+                @include mob{
+                    display: none;
                 }
                 input{
                     border:0;

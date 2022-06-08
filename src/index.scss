@@ -28,7 +28,7 @@
     color: transparent;
 }
 @mixin mob {
-    @media (min-width:0px) and (max-width:420px) {
+    @media (min-width:0px) and (max-width:700px) {
         @content;
     }
 }
@@ -141,11 +141,18 @@ html{
                     justify-content: space-between;
                     border-bottom: 3px solid magenta;
                     padding-bottom: #{'min(0.5rem,20px)'};
-                    
+                    @include mob{
+                        flex-wrap: wrap;
+                    }
                     h2{
                         font-size: #{'min(3.6em,36px)'};
                         line-height: #{'min(1rem,40px)'};
                         width: calc(100% / 3);
+                        @include mob{
+                            width: 50%;
+                            font-size: #{'max(3.6em,14px)'};
+                            line-height: #{'max(1rem,20px)'};
+                        }
                     }
                     h3{
                         font-size: #{'min(2.2em,22px)'};
@@ -153,6 +160,11 @@ html{
                         font-family: "Noto Serif KR";
                         width: calc(100% / 3);
                         text-align: center;
+                        @include mob{
+                            width: 50%;
+                            font-size: #{'max(3.6em,14px)'};
+                            line-height: #{'max(1rem,20px)'};
+                        }
                     }
                     ul{
                         display: flex;
@@ -160,6 +172,9 @@ html{
                         font-size:  #{'min(4em,40px)'};
                         width: calc(100% / 3);
                         line-height:  #{'min(1rem,40px)'};
+                        @include mob{
+                            display: none;
+                        }
                         li{
                             margin-left: 10px;
                         }
@@ -169,6 +184,9 @@ html{
                     display: flex;
                     justify-content: space-between;
                     margin-top: #{'min(0.5rem,20px)'};
+                    @include mob{
+                      display: none;
+                    }
                     ul{
                         display: flex;
                         width: 50%;
@@ -190,6 +208,10 @@ html{
                 line-height: #{'min(1rem,40px)'};
                 text-align: center;
                 font-size: #{'min(2em,20px)'};
+                @include mob{
+                    line-height: #{'max(1rem,20px)'};
+                    font-size: #{'max(2em,13px)'};
+                }
             }
         }
     }

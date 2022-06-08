@@ -45,7 +45,11 @@ function main(){
     });
 
     if(fnc.wd<=1024){
-        fnc.touch(slideGr,'-66.66%','-33.33%');
+        if(fnc.wd <= 700){
+            fnc.touch(slideGr,'-50%','-25%');
+        }else{
+            fnc.touch(slideGr,'-100%','-50.33%');
+        }
         fnc.touch(document.querySelector('.cnt03 .artGroup'),'-40%','-20%');
         fnc.touch(document.querySelector('.cnt02 .artGroup'),'-100%','-50%');
     }
