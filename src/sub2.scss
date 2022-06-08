@@ -21,6 +21,17 @@ $mainColor :  rgba(153,102,102,0.7);
     background-repeat: no-repeat;
     color: transparent;
 }
+
+@mixin mob {
+    @media (min-width:0px) and (max-width:700px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 .page.sub2{
     div.mnWrap{
         background-image: url('./images/sub2_mn.jpg');
@@ -31,21 +42,43 @@ $mainColor :  rgba(153,102,102,0.7);
     div.cnt01{
         section{
             margin-top: #{'min(1rem,40px)'};
+            @include tab{
+                margin-top: #{'max(1rem,20px)'};
+            }
             div.artGr{
                 row-gap: #{'min(1rem,40px)'};
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
+                @include tab{
+                    width: 225%;
+                    margin-left: -25%;
+                }
+                @include mob{
+                    width:300%;
+                    margin-left: -33.33%;
+                }
        
                 article{
                     height:  #{'min(12rem,480px)'};
                     width: calc(100% / 3 - 20px);
                     position: relative;
                     cursor: pointer;
+                    @include tab{
+                        width: calc(100% / 9 - 1%);
+                        height: calc(100% / 9 - 1%);
+                    }
+
                     .image{
                         width: 100%;
                         height: #{'min(8.5rem,340px)'};
                         border-radius: 50%;
+                        @include tab{
+                            height:#{'min(4rem,150px)'};
+                        }
+                        @include mob{
+                            height:#{'min(3rem,180px)'};
+                        }
                         @include img(0 0,cover);
                         transition-property: opacity;
                         transition-duration: 1.5s;
@@ -74,6 +107,17 @@ $mainColor :  rgba(153,102,102,0.7);
                     .texts{
                         text-align: center;
                         margin-top: 20px;
+                        font-size: #{'min(2.4em, 24px)'};
+                        @include tab{
+                            font-size: #{'max(1.2em, 12px)'};
+
+                        }
+                        h5{
+                            font-size: #{'min(1.2em, 12px)'};
+                            @include tab{
+                                display: none;
+                            }
+                        }
                     }
                     .btn{
                         position: absolute;
@@ -112,68 +156,104 @@ $mainColor :  rgba(153,102,102,0.7);
         overflow: hidden;
         section{
             margin-top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-            height: 100%;
-            article{
-                width: calc(100% / 4);
-                height: #{'min(13rem,520px)'};
-                background-color: #ccc;
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
-                .image{
-                    width: 100%;
-                    height: 100%;
-                    filter: blur(0);
-                    transition: filter 0.8s;
-                    @for $i from 1 through 4{
-                        &.i#{$i}{
-                            background-image: url('./images/sub2_cnt2_#{$i}.jpg');
+            div.artGr{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                height: 100%;
+                @include tab{
+                    width:190%;
+                    margin-left: -45%;
+                }
+                article{
+                    width: calc(100% / 4);
+                    height: #{'min(13rem,520px)'};
+                    background-color: #ccc;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    @include mob{
+                        height: #{'min(6rem,240px)'};
+                    }
+                    .image{
+                        width: 100%;
+                        height: 100%;
+                        filter: blur(0);
+                        transition: filter 0.8s;
+                        color: transparent;
+                        @include img(center, cover);
+                        @for $i from 1 through 4{
+                            &.i#{$i}{
+                                background-image: url('./images/sub2_cnt2_#{$i}.jpg');
+                            }
                         }
                     }
-                }
-                .texts{
-                    width: 80%;
-                    position: absolute;
-                    left: 10%;
-                    bottom:0;
-                    color: #fff;
-                    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-                    transition: all 0.5s;
-                    p{
-                        height: #{'min(2rem,80px)'};
-                        overflow: hidden;
-                        font-size: #{'min(1.2em,12px)'};
-                        line-height: #{'min(2em,20px)'};
-                    }
-                }
-                &:hover {
-                    .image{
-                        filter: blur(10px);
-                    }
                     .texts{
-                        text-shadow: 1px 1px 1px #fc0;
-                        color: #000;
-                        font-weight: 700;
+                        width: 80%;
+                        position: absolute;
+                        left: 10%;
+                        bottom:10%;
+                        color: #fff;
+                        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                        transition: all 0.5s;
+                        h4{
+                            overflow: hidden;
+                            font-size: #{'min(2.2em,22px)'};
+                            line-height: #{'min(1rem,40px)'};
+                            @include tab{
+                                font-size: #{'max(1.4em,14px)'};
+                                line-height: #{'max(0.5rem,20px)'};
+                            }
+                        }
+                        p{
+                            height: #{'min(2rem,80px)'};
+                            overflow: hidden;
+                            font-size: #{'min(1.2em,12px)'};
+                            line-height: #{'min(0.5rem,20px)'};
+                            margin-top: #{'min(0.5rem,20px)'};
+                            @include tab{
+                                height: #{'max(2rem,80px)'};
+                                font-size: #{'max(1.2em,12px)'};
+                                line-height: #{'max(0.5rem,20px)'};
+                            }
+                            @include mob{
+                                display: none;
+                            }
+                        }
+                    }
+                    &:hover {
+                        .image{
+                            filter: blur(10px);
+                        }
+                        .texts{
+                            text-shadow: 1px 1px 1px #fc0;
+                            color: #000;
+                            font-weight: 700;
+                        }
                     }
                 }
             }
         }
     }
-    div.bnr01{
-        background-image: url('./images/sub2_banner01.jpg');
-        background-size: cover;
-        background-position: center;
-        h3{
-            color: #fff;
-            text-shadow: 1px 1px 1px #000;
+    div.bnrWrap{
+        div.bnr01{
+            background-image: url('./images/sub2_banner01.jpg');
+            background-size: cover;
+            background-position: center;
+            h3{
+                color: #fff;
+                text-shadow: 1px 1px 1px #000;
+            }
+            h4{
+                color: #fff;
+                text-shadow: 1px 1px 1px #000;
+            }
         }
-        h4{
-            color: #fff;
-            text-shadow: 1px 1px 1px #000;
+        @include mob{
+            &+div{
+                margin-top: 0;
+            }
         }
     }
 
@@ -195,15 +275,13 @@ $mainColor :  rgba(153,102,102,0.7);
             margin: auto;
             top: 0;
             left: 0;right: 0;bottom: 0;
-            width: 850px;
-            height: 500px;
             overflow: hidden;
             video{
-                height: 500px;
+                width: 100%;
             }
             button{
-                width: 50px;
-                height: 50px;
+                width: #{'min(15%,50px)'};
+                height: 10%;
                 position: absolute;
                 top: 0;right: 0;
             }

@@ -19,8 +19,17 @@
     background-repeat: no-repeat;
     color: transparent;
 }
+@mixin mob {
+    @media (min-width:0px) and (max-width:700px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 $mainColor :rgba(255,153,52,0.7);
-
 .page.sub3{
     div.mnWrap{
         background-image: url('./images/sub3_mn.jpg');
@@ -37,6 +46,11 @@ $mainColor :rgba(255,153,52,0.7);
                 line-height: #{'min(1rem,40px)'};
                 font-style: italic;
                 text-transform: uppercase;
+                @include tab{
+                    font-size: #{'max(1.6em,16px)'};
+                    font-weight: 700;
+                    line-height: #{'max(0.5rem,20px)'};
+                }
             }
         }
         section{
@@ -44,15 +58,30 @@ $mainColor :rgba(255,153,52,0.7);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                @include tab{
+                    display: block;
+                }
                 .image{
                     width: calc(100% / 12 * 7 - 4%);
                     height: #{'min(12rem,480px)'};
                     @include img(center, contain);
                     background-image: url('./images/sub3_cnt01_i1.jpg');
+                    @include tab{
+                        width: 100%;
+                        @include img(top, cover);
+                        height: #{'min(10rem,400px)'};
+                    }
+                    
+                    @include mob{
+                        height: #{'min(5rem,200px)'};
+                    }
                 }
                 .texts{
                     width: calc(100% / 12 * 5);
                     padding: 2%;
+                    @include tab{
+                        width: 100%;
+                    }
                     span{
                         display: block;
                         width: 100%;
@@ -60,6 +89,10 @@ $mainColor :rgba(255,153,52,0.7);
                         height: 40px;
                         font-family: "Kaushan Script";
                         font-style: italic;
+                        @include mob{
+                            font-size: 30px;
+                            height: 30px;
+                        }
                         &:last-of-type{
                             text-align: right;
                         }
@@ -69,43 +102,70 @@ $mainColor :rgba(255,153,52,0.7);
                         font-size: #{'min(1.8em,18px)'};
                         line-height: #{'min(3em,30px)'};
                         overflow: hidden;
+                        @include tab{
+                            font-size: #{'max(1.2em,12px)'};
+                            line-height: #{'max(0.5rem,20px)'}; 
+                        }
                     }
                 }
             }
         }
     }
 
-    div.bnr01{
-        background-image: url('./images/sub3_banner01.jpg');
-        padding: #{'min(2rem,80px)'} 0;
-        p{
-            font-size:#{'min(1.8em,18px)'};
-            line-height: #{'min(1rem,40px)'};
-            width: calc(100% / 12 * 8);
-            margin: 0 auto;
-            font-weight: 400;
-            height: #{'min(3rem,120px)'};
-            overflow: hidden;
+    
+        div.bnr01{
+            background-image: url('./images/sub3_banner01.jpg');
+            padding: #{'min(2rem,80px)'} 0;
+            @include tab{
+                padding: #{'min(1rem,40px)'} 0;
+            }
+            p{
+                font-size:#{'min(1.8em,18px)'};
+                line-height: #{'min(1rem,40px)'};
+                width: calc(100% / 12 * 8);
+                margin: 0 auto;
+                font-weight: 400;
+                height: #{'min(3rem,120px)'};
+                overflow: hidden;
+                @include tab{
+                    font-size:#{'max(1.2em,12px)'};
+                    line-height: #{'max(0.5rem,20px)'};
+                    height: #{'max(2rem,80px)'};
+                }
+            }
         }
-    }
+    
 
     div.cnt02{
         header{
             width: 80%;
             margin: 0 auto;
+            @include tab{
+                width: 100%;
+            }
             h2{
                 font-size: #{'min(3.6em,36px)'};
                 font-weight: 700;
                 line-height: #{'min(1rem,40px)'};
                 font-style: italic;
                 text-transform: uppercase;
+                @include tab{
+                    font-size: #{'max(1.6em,16px)'};
+                    font-weight: 700;
+                    line-height: #{'max(0.5rem,20px)'};
+                }
             }
             p{
                 height: #{'min(1rem,40px)'};
                 overflow: hidden;
                 font-size: #{'min(1.5em,15px)'};
                 line-height: #{'min(2em,20px)'};
-                margin-top: #{'min(0.5rem,20px)'};;
+                margin-top: #{'min(0.5rem,20px)'};
+                @include tab{
+                    font-size: #{'max(1.2em,12px)'};
+                    line-height: #{'max(0.5rem,20px)'};
+                    height: #{'max(1rem,40px)'};
+                }
             }
         }
         section{
@@ -113,13 +173,28 @@ $mainColor :rgba(255,153,52,0.7);
             flex-wrap: wrap;
             margin-top: #{'min(1rem,40px)'};
             height: 100%;
+            @include tab{
+                row-gap:  #{'min(0.5rem,20px)'};
+            }
+            @include mob{
+                row-gap: 0;
+            }
             article{
                 width: calc(100% / 3);
                 height: #{'min(6.5rem,260px)'};
                 background-color: #c7b299;
+                @include tab{
+                    width: 50%;
+                    height: #{'min(6rem,240px)'};
+                }
+                @include mob{
+                    width: 100%;
+                    height: #{'min(5rem,200px)'};
+                }   
                 .image{
                     width: 100%;
                     height: 100%;
+                    color: transparent;
                     @for $i from 1 through 3{
                         &.i#{$i}{
                             background-image: url('./images/sub3_cnt02_i#{$i}.jpg');
@@ -127,12 +202,30 @@ $mainColor :rgba(255,153,52,0.7);
                     }
                 }
                 .texts{
+                    padding:  #{'min(1rem,40px)'};
+                    @include tab{
+                        padding:  #{'min(0.5rem,40px)'};
+                        
+                    }
+                    h4{
+                        font-size:  #{'min(2.2em,20px)'};
+                        @include tab{
+                            font-size:  #{'max(2.2em,14px)'};
+                        }
+                    }
+
                   p{
                     height:  #{'min(3rem,120px)'};
                     overflow: hidden;
                     margin-top:  #{'min(0.5rem,20px)'};
-                    font-size:  #{'min(1.5em,15px)'};;
-                    line-height:  #{'min(2em,20px)'};;
+                    font-size:  #{'min(1.5em,15px)'};
+                    line-height:  #{'min(2em,20px)'};
+                   
+                    @include tab{
+                        height:  #{'max(3rem,80px)'};
+                        font-size:  #{'max(1.5em,12px)'};
+                        line-height:  #{'max(0.5rem,20px)'};
+                    }
                   }  
                 }
             }
@@ -148,6 +241,9 @@ $mainColor :rgba(255,153,52,0.7);
     div.cnt03{
         display: block;
         padding: #{'min(3rem,120px)'} 0;
+        @include tab{
+            padding: #{'max(1rem,40px)'} 0;
+        }
         header{
             color: #fff;
             width: 100%;
@@ -159,10 +255,20 @@ $mainColor :rgba(255,153,52,0.7);
                 line-height: #{'min(1rem,40px)'};
                 font-style: italic;
                 text-transform: uppercase;
+                @include tab{
+                    font-size: #{'min(1.6em,16px)'};
+
+                }
             }
             p{
                 line-height: #{'min(1rem,40px)'};
                 font-size: #{'min(1.8em,18px)'};
+                @include tab{
+                    font-size: #{'min(1.2em,12px)'};
+                    line-height: #{'max(0.5rem,20px)'};
+                    margin-top: #{'max(1em,10px)'};
+                    height: #{'max(0.5rem,20px)'};
+                }
             }
         }
         section{
@@ -171,10 +277,17 @@ $mainColor :rgba(255,153,52,0.7);
             justify-content: space-between;
             width: 100%;
             margin-top:  #{'min(1rem,40px)'};
+            @include tab{
+                margin-top:  #{'max(0.5rem,20px)'};
+            }
             article{
                 width: calc(100% / 3 - 20px);
                 height: #{'min(13rem,520px)'};
                 position: relative;
+                @include tab{
+                    width: calc(100% / 3 - 1%);
+                    height: #{'max(6rem,240px)'};
+                }
                 .image{
                     width: 100%;
                     height: 100%;
@@ -197,11 +310,17 @@ $mainColor :rgba(255,153,52,0.7);
                     h4{
                         font-size:  #{'min(2.4em,24px)'};
                         font-weight: 700;
+                        @include tab{
+                            font-size:  #{'max(1.4em,14px)'}; 
+                        }
                     }
                     p{
                         margin-top:#{'min(0.5rem,20px)'};
                         font-size:  #{'min(1.5em,15px)'};
                         line-height: #{'min(0.5rem,20px)'};
+                        @include tab{
+                            font-size:  #{'min(1.2em,12px)'};
+                        }
                     }
                 }
             }

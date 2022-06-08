@@ -32,18 +32,24 @@
     div.mnWrap{
         width: 100%;
         overflow: hidden;
-        height: #{'min(17.5rem,700px)'};
         margin-top: #{'max(-2rem,-80px)'};
+        height: #{'min(17.5rem,700px)'};
+        @include tab{
+            height: #{'max(8.5rem, 350px)'};
+        }
         main{
             .mnGroup{
                 width: 100%;
                 position: relative;
                 height: #{'min(17.5rem,700px)'};
+                @include tab{
+                    height: #{'max(8.5rem, 350px)'};
+                }
                 .mnImg{
                     width: 100%;
                     height: 100%;
-                    @include img(center,cover);
                     position: absolute;
+                    @include img(center,cover);
                     top: 0;left: 0;
                     opacity: 0;
                     transition: opacity 1s;
@@ -66,6 +72,13 @@
                 left: 0;right: 0;
                 display: flex;
                 color: #fff;
+                @include tab{
+                    @include grid('tab');
+                    top: #{'max(5rem,200px)'};
+                }
+                @include mob(){
+                    @include grid('mob');
+                }
                 .num{
                     text-align: center;
                     h4{
@@ -86,14 +99,12 @@
                             background-color: #aaa; border-radius: 10px;
                             margin-top: 6px; cursor: pointer;
                             margin: 8px auto 0;
+                            @include tab{
+                                width: #{'max(50% , 15px)'};
+                            }
                             &.clicked{
                                 background-color: #fff;
                             }
-                            @include tab{
-                                height: #{'max(1.6em,10px)'};
-                                width: 45%;
-                            }
-
                         }
                     }
     
@@ -119,11 +130,6 @@
                         height:  #{'min(2rem,80px)'};
                         overflow: hidden;
                         line-height:  #{'min(0.5rem,20px)'};
-                        @include tab{
-                            height:  #{'max(2rem,60px)'};
-                            font-size:  #{'max(1.2em,11px)'};
-                            line-height:  #{'max(0.5rem,20px)'};
-                        }
                     }
                 }
             }
@@ -137,48 +143,51 @@
             line-height: #{'min(2rem,80px)'};
             text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
             color: #fff;
+            @include tab{
+                @include grid('tab');
+                font-size: #{'min(1.8em,18px)'};
+                line-height: #{'min(1rem,40px)'};
+            }
         }
     }
     
     div.cntWrap{
         margin-top: #{'min(3rem,120px)'};
-        @include tab{
-            margin-top: #{'max(1rem,40px)'}; 
             overflow: hidden;
+        @include tab{
+            margin-top: #{'min(1rem,40px)'}; 
         }
         @include mob{
-            margin-top: #{'max(1rem,20px)'}; 
+            margin-top: #{'max(0.5rem,20px)'}; 
         }
         .content{
             @include grid('pc');
+            @include tab{
+                @include grid('tab');
+            }
+            @include mob(){
+                @include grid('mob');
+            }
             header{
                 h3{
                     font-size: #{'min(3em,30px)'};
                     line-height: #{'min(1rem,40px)'};
                     @include tab{
-                        font-size: #{'max(3em,16px)'};
-                        line-height: #{'max(1rem,20px)'};
+                        font-size: #{'max(1.6em,16px)'};
+                        line-height: #{'max(0.5rem,20px)'};
                     }
                 }
                 h4{
                     font-size: #{'min(2.2em,22px)'};
                     line-height: #{'min(1rem,40px)'};
                     font-weight: 300;
-                    @include tab{
-                        font-size: #{'max(2.2em,12px)'};
-                        line-height: #{'max(1rem,20px)'};
-                    }
                     @include mob(){
                         display: none;
                     }
                 }
                 p{
-                    font-size:#{'min(1.8em,18px)'} ;
-                    line-height:#{'min(0.5rem,20px)'} ;
-                    @include tab{
-                        font-size:#{'max(1.8em,12px)'} ;
-                        line-height:#{'max(0.5rem,20px)'} ;
-                    }
+                    font-size:#{'min(1.8em,18px)'};
+                    line-height:#{'min(0.5rem,20px)'};
                     @include mob(){
                         display: none;
                     }
@@ -191,7 +200,10 @@
                 overflow: hidden;
                 margin-top: #{'min(2rem,80px)'};
                 @include tab{
-                    margin-top: #{'max(1rem,20px)'};
+                    margin-top: #{'min(1rem,40px)'};
+                }
+                @include mob{
+                    margin-top: #{'max(0.5rem,20px)'};
                 }
                 article{
                     &>h3{
@@ -225,12 +237,9 @@
                         article{
                             width: calc(100% / 6 - 20px);
                             height: #{'min(12rem,480px)'};
-                            @include tab{
-                                height: #{'max(12rem,200px)'};
-                            }
                             @include mob{
                                 width: calc(100% / 4);
-                                height: #{'max(12rem,150px)'};
+                                height: #{'max(4rem,160px)'};
                             }
 
                             position: relative;
@@ -256,10 +265,6 @@
                             .image{
                                 width: 88.23%;
                                 height: #{'min(11rem,440px)'};
-                                @include tab{
-                                    height: #{'max(12rem,200px)'};
-                                    width: 81.23%;
-                                }
                                 @include mob{
                                     display: none;
                                 }
@@ -340,6 +345,7 @@
                 section{
                     @include tab{
                         overflow: visible;
+                        margin-top: 0;
                     }
                     div.artGroup{
                         display: flex;
@@ -355,12 +361,17 @@
                            height: auto;
                         }
                         @include mob(){
+                            width: 400%;
                             height: auto;
+                            margin-left: -100%;
                         }
                         article{
                             width: calc(50% - #{'min(1%,20px)'});
                             @include tab{
                                 width: calc(25% - #{'min(1%,20px)'});
+                            }
+                            @include mob{
+                                
                             }
                             .image{
                                 height: #{'min(11rem,440px)'};
@@ -371,7 +382,7 @@
                                     }
                                 }
                                 @include tab{
-                                    height: 11rem; 
+                                    height: #{'min(7rem,280px)'}; 
                                 }
                             }
                             .texts{
@@ -411,9 +422,6 @@
                                     font-size: #{'min(4em,40px)'};
                                     color: #ccc;
                                     cursor: pointer;
-                                    @include tab{
-                                        font-size: #{'max(4em,30px)'};
-                                    }
                                     @include mob(){
                                         display: none;
                                     }
@@ -488,7 +496,10 @@
                     margin-top: 0;
                     @include tab{
                        margin-top: #{'min(1rem,40px)'};
-                       width: 90%;
+                       width: 100%;
+                    }
+                    @include mob{
+                        margin-top: 0;
                     }
                     .sectWrap{
                         width: calc((100vw - 1080px) / 2 + 100%);
@@ -517,12 +528,9 @@
                                     box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
                                     border-radius: 50%;
                                     @include tab{
-                                        height: #{'max(5rem,200px)'};
+                                        // height: #{'max(5rem,200px)'};
                                         box-shadow: 2px 2px 4px rgba(0,0,0,0);
                                         border-radius: 0;
-                                    }
-                                    @include mob{
-                                        height: #{'max(5rem,120px)'};
                                     }
                                     @include img(center, contain);
                                     @for $i from 1 through 7{
@@ -544,7 +552,8 @@
         padding: #{'min(3rem,120px)'} 0;
         @include img(center,cover);
         @include tab{
-            margin-top: #{'max(1rem,40px)'};
+            margin-top: #{'min(1rem,40px)'};
+            padding: #{'min(1rem,40px)'} 0;
         }
         @include mob{
             margin-top: #{'max(1rem,20px)'};
@@ -557,16 +566,16 @@
                 font-size: #{'min(3em,30px)'};
                 line-height: #{'min(1rem,40px)'};
                 @include tab{
-                    font-size: #{'max(3em,16px)'};
-                    line-height: #{'max(1rem,20px)'};
+                    font-size: #{'max(1.6em,16px)'};
+                    line-height: #{'max(0.5rem,20px)'};
                 }
             }
             h4{
                 font-size: #{'min(1.8em,18px)'};
                 line-height: #{'min(1rem,40px)'};
                 @include tab{
-                    font-size: #{'min(1.8em,14px)'};
-                    line-height: #{'max(1rem,20px)'};
+                    font-size: #{'min(1.4em,14px)'};
+                    line-height: #{'max(0.5rem,20px)'};
                 }
             }
             p{
@@ -575,7 +584,7 @@
                 font-size: #{'min(1.4em,14px)'};
                 line-height: #{'min(0.5rem,20px)'};
                 @include tab{
-                    font-size: #{'max(1.4em,12px)'};
+                    font-size: #{'max(1.2em,12px)'};
                     line-height: #{'max(0.5rem,20px)'};
                     height: #{'max(1rem,40px)'};
                     overflow: hidden;
@@ -592,8 +601,9 @@
                 font-size: #{'min(2em,20px)'};
                 cursor: pointer;
                 @include mob{
-                    line-height: #{'max(1rem,20px)'};
-                    font-size: #{'max(2em,13px)'};
+                    margin-top:  #{'max(0.5rem,20px)'};
+                    line-height: #{'max(0.5rem,20px)'};
+                    font-size: #{'max(1.3em,13px)'};
                 }
             }
             form{

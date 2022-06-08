@@ -45,7 +45,7 @@ $mainColor :  rgba(204,102,102,0.7);
                 width: 100%;
                 justify-content: space-around;
                 @include mob{
-                    row-gap:  #{'max(1rem,10px)'};
+                    row-gap:  #{'max(1em,10px)'};
                 }
                 button{
                     width: calc(100% / 6 - 20px);
@@ -57,8 +57,8 @@ $mainColor :  rgba(204,102,102,0.7);
                     border-radius: 10px;
                     cursor: pointer;
                     @include tab{
-                        font-size: #{'max(2em,14px)'};
-                        line-height: #{'max(1rem,20px)'};
+                        font-size: #{'max(1.4em,14px)'};
+                        line-height: #{'max(0.5rem,20px)'};
                         width: calc(100% / 6 - 1%);
                     }
                     @include mob{
@@ -99,7 +99,7 @@ $mainColor :  rgba(204,102,102,0.7);
                     height:#{'min(7rem,280px)'};
                     width: 100%;
                     @include mob{
-                        height:#{'max(7rem,150px)'};
+                        height:#{'max(5rem,200px)'};
                     }
                     @for $i from 1 through 12{
                         &.i#{$i}{
@@ -112,14 +112,14 @@ $mainColor :  rgba(204,102,102,0.7);
                     line-height: #{'min(1rem,40px)'};
                     font-size: #{'min(2.4em,24px)'};
                     @include mob{
-                        line-height: #{'max(1rem,20px)'};
-                        font-size: #{'max(2.4em,15px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                        font-size: #{'max(1.5em,15px)'};
                     }
                     h5{
                         font-size: #{'min(1.8em,18px)'};
                         @include mob{
-                            line-height: #{'max(1rem,20px)'};
-                            font-size: #{'max(1em,12px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                            font-size: #{'max(1.2em,12px)'};
                         }
                     }
                     h6{
