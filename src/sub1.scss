@@ -19,6 +19,16 @@
     background-repeat: no-repeat;
     color: transparent;
 }
+@mixin mob {
+    @media (min-width:0px) and (max-width:700px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 $mainColor :  rgba(204,102,102,0.7);
 .page.sub1{
     div.mnWrap{   
@@ -34,6 +44,9 @@ $mainColor :  rgba(204,102,102,0.7);
                 flex-wrap: wrap;
                 width: 100%;
                 justify-content: space-around;
+                @include mob{
+                    row-gap:  #{'max(1rem,10px)'};
+                }
                 button{
                     width: calc(100% / 6 - 20px);
                     font-size: #{'min(2em,20px)'};
@@ -43,6 +56,14 @@ $mainColor :  rgba(204,102,102,0.7);
                     background-image: url('./images/btn_bg2.jpg');
                     border-radius: 10px;
                     cursor: pointer;
+                    @include tab{
+                        font-size: #{'max(2em,14px)'};
+                        line-height: #{'max(1rem,20px)'};
+                        width: calc(100% / 6 - 1%);
+                    }
+                    @include mob{
+                        width: calc(100% / 3 - 1%);
+                    }
                 }
             }
             h4{
@@ -63,18 +84,23 @@ $mainColor :  rgba(204,102,102,0.7);
                 transition: opacity 0.5s,width 0.5s 0.5s, height 0s 0.5s;
                 opacity: 0;
                 width: 0;
-                height: 0;
                 overflow: hidden;
                 &.show{
                     opacity: 1;
-                    height: #{'min(10rem,400px)'};
                     width: calc(100% / 3 - 20px);
                     margin-left: 20px;
+                    @include mob{
+                        width: calc(50% - 1%);
+                        margin-left: 1%;
+                    }
                 }
                 .image{
                     @include img(center, contain);
                     height:#{'min(7rem,280px)'};
                     width: 100%;
+                    @include mob{
+                        height:#{'max(7rem,150px)'};
+                    }
                     @for $i from 1 through 12{
                         &.i#{$i}{
                             background-image: url('./images/bottle#{$i}.png');
@@ -85,8 +111,16 @@ $mainColor :  rgba(204,102,102,0.7);
                     text-align: center;
                     line-height: #{'min(1rem,40px)'};
                     font-size: #{'min(2.4em,24px)'};
+                    @include mob{
+                        line-height: #{'max(1rem,20px)'};
+                        font-size: #{'max(2.4em,15px)'};
+                    }
                     h5{
                         font-size: #{'min(1.8em,18px)'};
+                        @include mob{
+                            line-height: #{'max(1rem,20px)'};
+                            font-size: #{'max(1em,12px)'};
+                        }
                     }
                     h6{
                         font-size: #{'min(2.5em,25px)'};
@@ -113,6 +147,15 @@ $mainColor :  rgba(204,102,102,0.7);
                         border: 0;
                         color: #fff;
                         cursor: pointer;
+                        @include tab{
+                            &:first-child{
+                                display: none;
+                            }
+                            height: #{'max(2.5rem,90px)'}; 
+                             width: #{'max(2.5rem,90px)'}; 
+                            font-size: #{'max(1rem,40px)'}; 
+                            line-height: #{'max(2.5rem,90px)'};
+                        }
                     }
                 }
                 &:hover{
@@ -134,6 +177,9 @@ $mainColor :  rgba(204,102,102,0.7);
                         top: 0; right: 5%;
                         font-size: #{'min(1rem, 40px)'};
                         color: $mainColor;
+                        @include mob{
+                            font-size: #{'max(1rem, 20px)'};
+                        }
                     }
                 }
             }
