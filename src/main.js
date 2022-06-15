@@ -47,11 +47,12 @@ function main(){
     if(fnc.wd<=1024){
         if(fnc.wd <= 700){
             fnc.touch(slideGr,'-50%','-25%');
+            fnc.touch(document.querySelector('.cnt02 .artGroup'),'-200%','-100%');
         }else{
             fnc.touch(slideGr,'-100%','-50.33%');
+            fnc.touch(document.querySelector('.cnt02 .artGroup'),'-100%','-50%');
         }
         fnc.touch(document.querySelector('.cnt03 .artGroup'),'-40%','-20%');
-        fnc.touch(document.querySelector('.cnt02 .artGroup'),'-100%','-50%');
     }
 }
 export default main;

@@ -21,6 +21,16 @@ $mainColor:rgba(0,51,153,0.7);
     background-repeat: no-repeat;
     color: transparent;
 }
+@mixin mob {
+    @media (min-width:0px) and (max-width:700px) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width:0px) and (max-width:1024px) {
+        @content;
+    }
+}
 
 @keyframes hdrBgi{
     0%{
@@ -64,6 +74,9 @@ $mainColor:rgba(0,51,153,0.7);
             @include grid('pc');
             position: relative;
             height: 100%;
+            @include mob{
+                width: 100%;
+            }
             header{
                 width: 100%;
                 position: absolute;
@@ -75,16 +88,26 @@ $mainColor:rgba(0,51,153,0.7);
                 font-weight: bold;
                 font-size: #{'min(2rem,80px)'};
                 padding-top: 5%;
+                @include tab{
+                    top: #{'min(1rem,40px)'};
+                }
                 h2{
                     width: calc(100% / 12 * 5);
                     max-width:#{'min(14rem,560px)'};
                     color: #fff;
                     text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+                    @include tab{
+                        font-size: #{'min(1rem,40px)'};
+                    }
                 }
                 h3{
                     font-size: #{'min(1rem,40px)'};
                     text-align: right;
                     animation: hdrBgtt 7s infinite;
+                    @include tab{
+                        font-size: #{'min(0.5rem,20px)'};
+                        margin-right: 5%;
+                    }
                 }
             }
             section{
@@ -93,6 +116,15 @@ $mainColor:rgba(0,51,153,0.7);
                 top: #{'min(3.5rem,140px)'};
                 margin: auto;
                 left: 0;right: 0;
+                @include tab{
+                    top: #{'min(1rem,40px)'};
+                    height: 80%;
+                }
+                @include mob{
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                }
                 .image{
                     height: #{'min(10rem,400px)'};
                     background-color: #ccc;
@@ -104,6 +136,10 @@ $mainColor:rgba(0,51,153,0.7);
                     background-image: url('./images/sub4_mn_i1.jpg');
                     @include img(center,cover);
                     animation: hdrBgi linear 10s infinite;
+                    @include tab{
+                        height: 100%;
+                    }
+            
                     h2{
                         font-size: #{'min(2rem,80px)'};
                         color: #fff;
@@ -112,6 +148,12 @@ $mainColor:rgba(0,51,153,0.7);
                         font-weight: bold;
                         font-style: italic;
                         animation: hdrBgtt linear 20s infinite;
+                        @include tab{
+                            font-size: #{'min(1rem,40px)'};
+                        }
+                        @include mob{
+                            display: none;
+                        }
                     }
                 }
             }
@@ -144,6 +186,11 @@ $mainColor:rgba(0,51,153,0.7);
                 text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
                 font-size: #{'min(3.6em,36px)'};
                 font-style: italic;
+                @include tab{
+                    font-size: #{'max(1.6em,16px)'};
+                    text-shadow: 0px 0px 0px transparent;
+                    text-align: center;
+                }
             }
         }
         section{
@@ -245,13 +292,20 @@ $mainColor:rgba(0,51,153,0.7);
                 width: 100%;
                 row-gap: #{'min(1rem,40px)'};
                 article{
-                    width: calc(100% / 3 - 20px);;
+                    width: calc(100% / 3 - 20px);
                     height: #{'min(10rem,400px)'};
                     position: relative;
+                    @include mob{
+                        width: 100%;
+                    }
                     .image{
                         width: 100%;
                         height: #{'min(8rem,320px)'};
                         @include img(center,contain);
+                        @include tab{
+                            height: 80%;
+                            @include img(center,cover);
+                        }
                         @for $i from 1 through 3{
                             &.i#{$i}{
                                 background-image: url('./images/sub4_cnt03_i#{$i}.png');
@@ -328,6 +382,11 @@ $mainColor:rgba(0,51,153,0.7);
                     text-shadow: 2px 2px 2px rgba(0,0,0,0.7);
                     font-size: #{'min(3.6em,36px)'};
                     font-style: italic;
+                    @include tab{
+                        font-size: #{'max(1.6em,16px)'};
+                        text-shadow: 0px 0px 0px transparent;
+                        text-align: center;
+                    }
                 }
             }
             section{
@@ -338,13 +397,22 @@ $mainColor:rgba(0,51,153,0.7);
                 margin-top: #{'min(1rem,40px)'};
                 height: #{'min(11rem,440px)'};
                 overflow: hidden;
+                @include tab{
+                    height:#{'min(8rem,320px)'};
+                }
                 article{
                     width: calc(100% / 3 - 2%);
                     position: relative;
                     background-color: rgba(255,255,255,0.8);
+                    @include mob{
+                        width: 100%;
+                    }
                     .image{
                         @include img(center, cover);
                         height: #{'min(10rem,400px)'};
+                        @include tab{
+                            height: #{'min(7rem,280px)'};
+                        }
                         @for $i from 1 through 6{
                             &.i#{$i}{
                                 background-image: url('./images/sub4_cnt02_i#{$i}.png');
