@@ -69,7 +69,7 @@ $mainColor:rgba(0,51,153,0.7);
 
 .page.sub4{
     div.mnWrap{
-        background-image: url('./images/sub4_mn.jpg');
+        background-image: url('./images/sub4_mn.webp');
         main{
             @include grid('pc');
             position: relative;
@@ -133,7 +133,7 @@ $mainColor:rgba(0,51,153,0.7);
                     z-index: 1;
                     padding-top: 14.4%;
                     overflow: hidden;
-                    background-image: url('./images/sub4_mn_i1.jpg');
+                    background-image: url('./images/sub4_mn_i1.webp');
                     @include img(center,cover);
                     animation: hdrBgi linear 10s infinite;
                     @include tab{
@@ -220,7 +220,7 @@ $mainColor:rgba(0,51,153,0.7);
                         background-color: #fff;
                         @for $i from 1 through 2{
                             &.i#{$i}{
-                                background-image: url('./images/sub4_cnt01_i#{$i+1}.png');
+                                background-image: url('./images/sub4_cnt01_i#{$i+1}.webp');
                             }
                         }
                     }
@@ -308,7 +308,7 @@ $mainColor:rgba(0,51,153,0.7);
                         }
                         @for $i from 1 through 3{
                             &.i#{$i}{
-                                background-image: url('./images/sub4_cnt03_i#{$i}.png');
+                                background-image: url('./images/sub4_cnt03_i#{$i}.webp');
                             }
                         }
                     }
@@ -324,7 +324,7 @@ $mainColor:rgba(0,51,153,0.7);
                         @include img(center,cover);
                         @for $i from 1 through 3{
                             &.i#{$i}{
-                                background-image: url('./images/sub4_cnt03_i#{$i}_bg.jpg');
+                                background-image: url('./images/sub4_cnt03_i#{$i}_bg.webp');
                             }
                         }
                         
@@ -415,7 +415,7 @@ $mainColor:rgba(0,51,153,0.7);
                         }
                         @for $i from 1 through 6{
                             &.i#{$i}{
-                                background-image: url('./images/sub4_cnt02_i#{$i}.png');
+                                background-image: url('./images/sub4_cnt02_i#{$i}.webp');
                             }
                         }
                     }
@@ -431,7 +431,7 @@ $mainColor:rgba(0,51,153,0.7);
                         opacity: 0;
                         @for $i from 1 through 6{
                             &.i#{$i}{
-                                background-image: url('./images/sub4_cnt02_i#{$i}_bg.jpg');
+                                background-image: url('./images/sub4_cnt02_i#{$i}_bg.webp');
                             }
                         } 
                     }

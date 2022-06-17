@@ -34,7 +34,7 @@ $mainColor :  rgba(153,102,102,0.7);
 }
 .page.sub2{
     div.mnWrap{
-        background-image: url('./images/sub2_mn.jpg');
+        background-image: url('./images/sub2_mn.webp');
     }
     div.bar{
         background-color: $mainColor;
@@ -84,7 +84,7 @@ $mainColor :  rgba(153,102,102,0.7);
                         transition-duration: 1.5s;
                         @for $i from 1 through 9{
                             &.i#{$i}{
-                            background-image: url('./images/sub2_cnt01_i#{$i}.jpg'); 
+                            background-image: url('./images/sub2_cnt01_i#{$i}.webp'); 
                             }
                         }
                     }
@@ -100,7 +100,7 @@ $mainColor :  rgba(153,102,102,0.7);
                         filter: blur(20px);
                         @for $i from 1 through 9{
                             &.i#{$i}{
-                            background-image: url('./images/sub2_cnt01_i#{$i}_bg.jpg'); 
+                            background-image: url('./images/sub2_cnt01_i#{$i}_bg.webp'); 
                             }
                         }
                     }
@@ -185,7 +185,7 @@ $mainColor :  rgba(153,102,102,0.7);
                         @include img(center, cover);
                         @for $i from 1 through 4{
                             &.i#{$i}{
-                                background-image: url('./images/sub2_cnt2_#{$i}.jpg');
+                                background-image: url('./images/sub2_cnt2_#{$i}.webp');
                             }
                         }
                     }
@@ -238,7 +238,7 @@ $mainColor :  rgba(153,102,102,0.7);
     }
     div.bnrWrap{
         div.bnr01{
-            background-image: url('./images/sub2_banner01.jpg');
+            background-image: url('./images/sub2_banner01.webp');
             background-size: cover;
             background-position: center;
             h3{

@@ -32,7 +32,7 @@
 $mainColor :  rgba(204,102,102,0.7);
 .page.sub1{
     div.mnWrap{   
-        background-image: url('./images/sub1_mn.jpg');
+        background-image: url('./images/sub1_mn.webp');
     }
     div.bar{
         background-color: $mainColor;
@@ -53,7 +53,7 @@ $mainColor :  rgba(204,102,102,0.7);
                     line-height: #{'min(1rem,40px)'};
                     text-transform: uppercase;
                     border: 0;
-                    background-image: url('./images/btn_bg2.jpg');
+                    background-image: url('./images/btn_bg2.webp');
                     border-radius: 10px;
                     cursor: pointer;
                     @include tab{
@@ -103,7 +103,7 @@ $mainColor :  rgba(204,102,102,0.7);
                     }
                     @for $i from 1 through 12{
                         &.i#{$i}{
-                            background-image: url('./images/bottle#{$i}.png');
+                            background-image: url('./images/bottle#{$i}.webp');
                         }
                     }
                 }
