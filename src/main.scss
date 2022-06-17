@@ -34,6 +34,7 @@
         overflow: hidden;
         margin-top: #{'max(-2rem,-80px)'};
         height: #{'min(17.5rem,700px)'};
+        @include img(center,cover);
         @include tab{
             height: #{'max(8.5rem, 350px)'};
         }

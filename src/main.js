@@ -10,13 +10,21 @@ function main(){
     const stars =  document.querySelectorAll('.cnt02 .texts p');
     const cnt02Sect = document.querySelector('.cnt02 section .artGroup');
 
-    let [crnPg,flag,hg,cnt,now,endIdx,stX,stY,enX,enY] = [0,false,0,1,'on',2,0,0,0,0];
+    let [crnPg,flag,hg,cnt,now,endIdx] = [0,false,0,1,'on',2];
 
     const autoRolling = setInterval(function(){
         crnPg++;
         crnPg=crnPg%3;
         fnc.pgNation(pg,mnImg,crnPg); 
     },1500);
+
+     function visibilityChange() {
+        if(document.hidden) {
+            clearInterval(autoRolling);
+        }
+    }
+
+    document.addEventListener("visibilitychange", visibilityChange, false);
     
     slideRight.onclick=()=>{fnc.slide('right','0%',slideGr,'-33.33%');};
     slideLeft.onclick=()=>{fnc.slide('left','-66.66%',slideGr,'-33.33%')};
