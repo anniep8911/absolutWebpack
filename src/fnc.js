@@ -72,7 +72,7 @@ export default{
         dom.addEventListener('touchstart',(e)=>{
             this.stX = e.changedTouches[0].screenX;
             this.stY = e.changedTouches[0].screenY;
-        });
+        },{passive:false});
         dom.addEventListener('touchend',(e) =>{
             this.enX = e.changedTouches[0].screenX;
             this.enY = e.changedTouches[0].screenY;
@@ -81,7 +81,7 @@ export default{
             }else if(this.stX<this.enX && Math.abs(this.stY-this.enY)<50){
                 this.slide('right','0%',dom,base);
             }
-        });
+        },{passive:false});
     }
 }
 
