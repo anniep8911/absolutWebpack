@@ -222,7 +222,7 @@ $mainColor :rgba(255,153,52,0.7);
                     line-height:  #{'min(2em,20px)'};
                    
                     @include tab{
-                        height:  #{'max(3rem,80px)'};
+                        height:  #{'max(2rem,80px)'};
                         font-size:  #{'max(1.5em,12px)'};
                         line-height:  #{'max(0.5rem,20px)'};
                     }

@@ -11,7 +11,7 @@ function sub2fn(){
 
    if(fnc.wd <= 1024){
       if(fnc.wd <= 700){
-         fnc.touch(slideGr,'-66.66%','-33.33%');
+         fnc.touch(slideGr,'-84%','-42%');
          fnc.touch(slideGr2,'-93%','-45%');
       }else{
             fnc.touch(slideGr,'-50%','-25%');
