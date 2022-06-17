@@ -53,6 +53,7 @@ function main(){
     });
 
     if(fnc.wd<=1024){
+        clearInterval(autoRolling);
         if(fnc.wd <= 700){
             fnc.touch(slideGr,'-50%','-25%');
             fnc.touch(document.querySelector('.cnt02 .artGroup'),'-200%','-100%');
