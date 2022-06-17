@@ -59,7 +59,7 @@
                     }
                     @for $i from 1 through 3{
                         &.i#{$i}{
-                            background-image: url('./images/index_mn_img#{$i}.jpg');
+                            background-image: url('./images/index_mn_img#{$i}.webp');
                         }
                     }
                 }
