@@ -564,6 +564,9 @@
             @include grid('pc');
             text-align: center;
             color: #000;
+            @include tab{
+                @include grid('tab');
+            }
             h3{
                 font-size: #{'min(3em,30px)'};
                 line-height: #{'min(1rem,40px)'};
