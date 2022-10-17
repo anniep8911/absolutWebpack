@@ -78,9 +78,9 @@ export default{
             this.enY = e.changedTouches[0].screenY;
             console.log(Math.abs(this.stX-this.enX));
             
-            if(this.stX>this.enX && Math.abs(this.stX-this.enX)>80 && Math.abs(this.stY-this.enY)<50){
+            if(this.stX>this.enX && Math.abs(this.stX-this.enX)>30 && Math.abs(this.stY-this.enY)<50){
                 this.slide('left',perLeft,dom,base)
-            }else if(this.stX<this.enX && Math.abs(this.stX-this.enX)>80 && Math.abs(this.stY-this.enY)<50){
+            }else if(this.stX<this.enX && Math.abs(this.stX-this.enX)>30 && Math.abs(this.stY-this.enY)<50){
                 this.slide('right','0%',dom,base);
             }
         },{passive:false});
