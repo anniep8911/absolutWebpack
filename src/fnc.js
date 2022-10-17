@@ -76,9 +76,11 @@ export default{
         dom.addEventListener('touchend',(e) =>{
             this.enX = e.changedTouches[0].screenX;
             this.enY = e.changedTouches[0].screenY;
-            if(this.stX>this.enX && Math.abs(this.stY-this.enY)<50){
+            console.log(Math.abs(this.stX-this.enX));
+            
+            if(this.stX>this.enX && Math.abs(this.stX-this.enX)>80 && Math.abs(this.stY-this.enY)<50){
                 this.slide('left',perLeft,dom,base)
-            }else if(this.stX<this.enX && Math.abs(this.stY-this.enY)<50){
+            }else if(this.stX<this.enX && Math.abs(this.stX-this.enX)>80 && Math.abs(this.stY-this.enY)<50){
                 this.slide('right','0%',dom,base);
             }
         },{passive:false});
