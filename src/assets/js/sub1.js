@@ -6,13 +6,13 @@ function sub1fn(){
     const close = document.querySelector('.lightBox button');
     const prd  = document.querySelectorAll('article');
     const thBtn = document.querySelectorAll('.btnGroup button');
-    const stars = document.querySelectorAll('.texts h6');
     let findKey = '';
     
     prd.forEach((e)=>{
         e.className='show';
     });
     
+    const stars = document.querySelectorAll('.texts h6');
     coBtn.forEach(e=>{
         e.onclick=()=>{
             lb.className = lb.className + ' checked';

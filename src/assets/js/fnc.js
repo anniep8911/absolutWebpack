@@ -84,6 +84,9 @@ export default{
                 this.slide('right','0%',dom,base);
             }
         },{passive:false});
+    },
+    insertComponent:function(dom, reslt){
+        dom.innerHTML = reslt;
     }
 }
 

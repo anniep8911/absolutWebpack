@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&family=Permanent+Marker&display=swap');
 @import url('./reset.scss');
-@import url('./main.css');
-@import url('./sub1.css');
-@import url('./sub2.css');
-@import url('./sub3.css');
-@import url('./sub4.css');
+@import url('./main.min.css');
+@import url('./sub1.min.css');
+@import url('./sub2.min.css');
+@import url('./sub3.min.css');
+@import url('./sub4.min.css');
 
 @mixin grid($dev){
     @if($dev=='pc'){
