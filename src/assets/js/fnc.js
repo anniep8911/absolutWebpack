@@ -68,6 +68,15 @@ export default{
     more: function more(hg,cnt,gr){
         gr.style.height = `${hg*cnt}px`;
     },
+    updown:function(dom,perLeft,base){
+        dom.addEventListener('mousedown ',(e)=>{
+            this.stX = e.changedTouches[0].screenX;
+            this.stY = e.changedTouches[0].screenY;
+
+            console.log('마우스 스탓!');
+        },{passive:false});
+        
+    },
     touch:function touch(dom,perLeft,base){
         dom.addEventListener('touchstart',(e)=>{
             this.stX = e.changedTouches[0].screenX;
