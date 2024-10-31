@@ -561,6 +561,8 @@
             margin-top: #{'max(1rem,20px)'};
         }
         .banner{
+            padding: 2em;
+            border: 1px solid red;
             @include grid('pc');
             text-align: center;
             color: #000;

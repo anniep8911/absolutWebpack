@@ -30,7 +30,7 @@ module.exports={
         template: './index.html',
     }),
      new MiniCssExtractPlugin({
-         filename:'style.css',
+         filename:'[style].min.css',
      })
 
     ],
@@ -40,4 +40,5 @@ module.exports={
         },
         port:8081,
     }
+    
 }
