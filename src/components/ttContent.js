@@ -9,7 +9,7 @@ export default{
             }
             <div class="image imges i${i+1}">${title[i]}</div>
             ${
-                titVis===1?`<div class="texts"><h2>${title[i]}</h2></div>`:``
+                titVis===1?`<div class="texts"><h2><span class="notranslate">${title[i]}</span></h2></div>`:``
             }
             </article>`;
     }

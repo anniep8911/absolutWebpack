@@ -17,7 +17,7 @@ export default{
             <h3>${title[i]}</h3>
             <div class="image i${i+1}">${title[i]}</div>
             <div class="texts i${i+1}">
-                <h4>${title[i]}</h4>
+                <h4><span class="notranslate">${title[i]}<span></h4>
                 <div class="btn">
                     ${
                         btnsDe

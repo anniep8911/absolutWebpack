@@ -397,6 +397,11 @@
                                 }
                                 h4{
                                     font-size: #{'min(2.4em,24px)'};
+                                    width: 100%;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    
                                 }
                                 .btn{
                                     margin-top: #{'min(2.5em,25px)'};
@@ -636,14 +641,14 @@
                     line-height: #{'min(1rem,40px)'};
                     height:  #{'min(1rem,40px)'};
                     &:nth-child(1){
-                        width: 15%;
+                        width: fit-content;
                     }
                     &:nth-child(2){
                         width: 65%;
                         background-color: rgba(255,255,255,0.8);
                     }
                     &:nth-child(3){
-                        width: 15%;
+                        width: fit-content;
                         cursor: pointer;
                     }
                 }
