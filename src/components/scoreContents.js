@@ -23,7 +23,7 @@ export default{
                         btnsDe
                     }
                 </div>
-                <p><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>
+                <p><span class="notranslate">★</span><span class="notranslate">★</span><span class="notranslate">★</span><span class="notranslate">★</span><span class="notranslate">★</span></p>
             </div>
         </article>
         ${

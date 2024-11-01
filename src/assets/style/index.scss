@@ -59,33 +59,87 @@ html{
             font-size: 2.38vw;
         }
 
+        // 트랜스레이트 아이콘 
+        .vodka{
+            position: fixed;
+            right: 2em;
+            bottom: 2em;
+            width: min(9.8em,98px);
+            height: min(20em,200px);
+            background-image: url('../images/vodka.png');
+            background-size:cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 20;
+            h2{
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                top: 50%;
+                font-size: min(1.8em, 18px);
+                background-color: #003399;
+                color: #fff;
+                padding: 5px;
+                border: 5px solid black;
+            }
+            label{
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
         .skiptranslate iframe{
             display: none;            
         }
         #goog-gt-tt{
             display: none !important;
         }
+
+        #lang{
+            display: none;
+            &:checked+#google_translate_element .skiptranslate.goog-te-gadget{
+                width:min(50em,500px);
+                opacity: 1;
+                @include mob(){
+                    width: 80%;
+                }
+            }
+        }
+
         // 구글 랭귀지 위젯 설정 
         .skiptranslate.goog-te-gadget{
            position: fixed;
            bottom: 2em;
-           right: 2em;
-           left: 0;
+           right: 2.5em;
+           width: 0%;
+           opacity: 0;
            z-index: 10;
            padding: 2em;
+           padding-right: min(9.8em, 98px);
+           box-sizing: border-box;
+           transition: all 0.5s;
+           margin: auto 0;
            &::after{
             content: '';
             display: block;
             width: 100%;
             height: 100%;
-            background: rgba(255,255,255,0.8);
+            background: rgba(0,51,153,0.8);
             position: absolute;
             left: 0;top: 0;
             z-index: -1;
             filter: blur(1px);
             border-radius: 2em;
-
-           }
+        }
+        .goog-te-combo{
+            border: none;
+            width: 100%;
+            background: rgba(0,51,153,0.8);
+            height: min(3em,30px);
+            color: #fff;
+            }
         }
     
 

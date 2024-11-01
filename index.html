@@ -32,10 +32,17 @@
     
     <!--푸터-->
     <div class="ftrWrap"></div> 
+
+    <!-- 번역구간 이미지 -->
+    <div class="vodka">
+        <h2>앱솔루트 보드카</h2>
+        <label for="lang"></label>
+    </div>
+    <input type="checkbox" name="lang" id="lang" >
     <div id="google_translate_element"></div>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
-        function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage:'ko',autoDisplay: true}, 'google_translate_element');}
+        function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage:'ko',includedLanguages : 'ko,zh-CN,zh-TW,en,ja,es', autoDisplay: true}, 'google_translate_element');}
         googleTranslateElementInit();
     </script>
 </body>
