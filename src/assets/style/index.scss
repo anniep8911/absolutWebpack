@@ -62,6 +62,9 @@ html{
         .skiptranslate iframe{
             display: none;            
         }
+        #goog-gt-tt{
+            display: none !important;
+        }
         // 구글 랭귀지 위젯 설정 
         .skiptranslate.goog-te-gadget{
            position: fixed;
